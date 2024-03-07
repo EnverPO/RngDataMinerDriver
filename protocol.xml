@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+
+****************************************************************************
+*  Copyright (c) 2024,  Skyline Communications NV  All Rights Reserved.    *
+****************************************************************************
+
+By using this driver, you expressly agree with the usage terms and
+conditions set out below.
+This driver and all related materials are protected by copyrights and
+other intellectual property rights that exclusively belong
+to Skyline Communications.
+
+A user license granted for this driver is strictly for personal use only.
+This driver may not be used in any way by anyone without the prior
+written consent of Skyline Communications. Any sublicensing of this
+driver is forbidden.
+
+Any modifications to this driver by the user are only allowed for
+personal use and within the intended purpose of the driver,
+and will remain the sole responsibility of the user.
+Skyline Communications will not be responsible for any damages or
+malfunctions whatsoever of the driver resulting from a modification
+or adaptation by the user.
+
+The content of this driver is confidential information.
+The user hereby agrees to keep this confidential information strictly
+secret and confidential and not to disclose or reveal it, in whole
+or in part, directly or indirectly to any person, entity, organization
+or administration without the prior written consent of
+Skyline Communications.
+
+Any inquiries can be addressed to:
+
+	Skyline Communications NV
+	Ambachtenstraat 33
+	B-8870 Izegem
+	Belgium
+	Tel.	: +32 51 31 35 69
+	Fax.	: +32 51 31 01 29
+	E-mail	: info@skyline.be
+	Web		: www.skyline.be
+	Contact	: Ben Vandenberghe
+
+-->
+
+<Protocol xmlns="http://www.skyline.be/protocol">
+	<Name>Random Number Connector</Name>
+	<Description>Random Number Connector DataMiner connector</Description>
+	<Version>1.0.0.1</Version>
+	<IntegrationID>DMS-DRV-5901</IntegrationID>
+	<Provider></Provider>
+	<Vendor></Vendor>
+	<VendorOID></VendorOID>
+	<DeviceOID></DeviceOID>
+	<ElementType>Random nuber generator</ElementType>
+	<Type relativeTimers="true">http</Type>
+	<Display defaultPage="Display" pageOrder="Display;----------;Data" wideColumnPages=""/>
+	<SNMP includepages="true">auto</SNMP>
+
+	<Compliancies>
+		<CassandraReady>true</CassandraReady>
+		<MinimumRequiredVersion>10.1.0.0 - 9966</MinimumRequiredVersion>
+	</Compliancies>
+
+	<Params>
+		<Param id="2">
+			<Name>AfterStartup</Name>
+			<Description>After Startup</Description>
+			<Type>dummy</Type>
+		</Param>
+		<Param id="5">
+			<Name>ip</Name>
+			<Description>ip</Description>
+			<Type>ip</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+		</Param>
+		<Param id="10">
+			<Name>RngMinHeader</Name>
+			<Description>Rng min value header parameter</Description>
+			<Type>read</Type>
+			<Information>
+				<Text>Min Value</Text>
+				<Subtext>Minimum value of the random number</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>0</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Data</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="110" setter="true">
+			<Name>RngMinHeader</Name>
+			<Description>Rng min value header parameter</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Data</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="11">
+			<Name>RngMaxHeader</Name>
+			<Description>Rng max value header parameter</Description>
+			<Type>read</Type>
+			<Information>
+				<Text>Min Value</Text>
+				<Subtext>Minimum value of the random number</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>10</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Data</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="111" setter="true">
+			<Name>RngMaxHeader</Name>
+			<Description>Rng max value header parameter</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Data</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="12">
+			<Name>RngCountHeader</Name>
+			<Description>Rng count value header parameter</Description>
+			<Type>read</Type>
+			<Information>
+				<Text>Count Value</Text>
+				<Subtext>Count value of random numbers</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<DefaultValue>1</DefaultValue>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Data</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="112" setter="true">
+			<Name>RngCountHeader</Name>
+			<Description>Rng count value header parameter</Description>
+			<Type>write</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Data</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+		<Param id="13" trending="false">
+			<Name>rngResponseStatusCode</Name>
+			<Description>rngResponseStatusCode</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Data</Page>
+						<Column>1</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="14" trending="false">
+			<Name>rngResponseContent</Name>
+			<Description>rngResponseContent</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Data</Page>
+						<Column>1</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type lines="20">string</Type>
+			</Measurement>
+		</Param>
+		<Param id="15" trending="true">
+			<Name>Random value</Name>
+			<Description>Random value from the internet</Description>
+			<Type>read</Type>
+			<Information>
+				<Text>Random value</Text>
+				<Subtext>Random value from the internet</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Alarm>
+				<Monitored>true</Monitored>
+			</Alarm>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Display</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		
+	</Params>
+
+	<QActions>
+		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
+		<QAction id="2" name="After Startup" encoding="csharp" triggers="2" />
+		<QAction id="3" name="Process responses" encoding="csharp" triggers="14" dllImport="[ProtocolName].[ProtocolVersion].QAction.1.dll">
+		</QAction>
+	</QActions>
+
+	<Groups>
+		<Group id="2">
+			<Name>After Startup</Name>
+			<Description>After Startup</Description>
+			<Type>poll action</Type>
+			<Content>
+				<Action>2</Action>
+			</Content>
+		</Group>
+		<Group id="10">
+			<Name>rng</Name>
+			<Description>Random Number Generator</Description>
+			<Type>poll</Type>
+			<Content>
+				<Session>1</Session>	
+			</Content>
+		</Group>
+	</Groups>
+
+	<Triggers>
+		<Trigger id="1">
+			<Name>After Startup</Name>
+			<On>protocol</On>
+			<Time>after startup</Time>
+			<Type>action</Type>
+			<Content>
+				<Id>1</Id>
+			</Content>
+		</Trigger>
+	</Triggers>
+
+	<Actions>
+		<Action id="1">
+			<Name>After Startup Group</Name>
+			<On id="2">group</On>
+			<Type>execute next</Type>
+		</Action>
+		<Action id="2">
+			<Name>After Startup QAction</Name>
+			<On id="2">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+		<Action id="10">
+			<Name>executeGetRng</Name>
+			<On id="10">group</On>
+			<Type>execute</Type>
+		</Action>
+	</Actions>
+
+	<Timers>
+		<Timer id="1">
+			<Name>Fast Timer (10s)</Name>
+			<Time initial="true">10000</Time>
+			<Interval>75</Interval>
+			<Content>
+				<Group>10</Group>
+			</Content>
+		</Timer>
+		<Timer id="2">
+			<Name>Medium Timer (1m)</Name>
+			<Time initial="true" dataDisplay="30000">60000</Time>
+			<Interval>75</Interval>
+			<Content>
+			</Content>
+		</Timer>
+		<Timer id="3">
+			<Name>Slow Timer (1h)</Name>
+			<Time initial="true">3600000</Time>
+			<Interval>75</Interval>
+			<Content>
+			</Content>
+		</Timer>
+	</Timers>
+
+	<HTTP>
+		<Session id="1" name="getRng">
+			<Connection id="1">
+				<Request verb="GET" url="https://www.randomnumberapi.com/api/v1.0/random">
+					<Parameters>
+						<Parameter key="min" pid="10"></Parameter>
+						<Parameter key="max" pid="11"></Parameter>
+						<Parameter key="count" pid="12"></Parameter>
+					</Parameters>
+					<Headers>
+						<Header key="Content-Type">text/html</Header>
+					</Headers>
+				</Request>
+				<Response statusCode="13">
+					<Content pid="14"></Content>
+				</Response>
+			</Connection>
+		</Session>
+	</HTTP>
+
+	<VersionHistory>
+		<Branches>
+			<Branch id="1">
+				<Comment>Main Branch</Comment>
+				<SystemVersions>
+					<SystemVersion id="0">
+						<MajorVersions>
+							<MajorVersion id="0">
+								<MinorVersions>
+									<MinorVersion id="1">
+										<Date>2024-03-06</Date>
+										<Provider>
+											<Author>Enver Podgorcevic</Author>
+											<Company>Skyline Communications</Company>
+										</Provider>
+										<Changes>
+											<NewFeature>Initial version</NewFeature>
+										</Changes>
+									</MinorVersion>
+								</MinorVersions>
+							</MajorVersion>
+						</MajorVersions>
+					</SystemVersion>
+				</SystemVersions>
+			</Branch>
+		</Branches>
+	</VersionHistory>
+
+</Protocol>
